@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RefGroup – Системный бизнес на маркетплейсах</title>
+    <!-- Google Fonts -->
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Additional font for modern look -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Animate.css for ready‑made animations -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <!-- Font Awesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="container nav">
+        <div class="logo">
+          Ref<span class="accent">Group</span>
+        </div>
+        <!-- Navigation links -->
+        <nav class="navigation">
+          <a href="#services">Услуги</a>
+          <a href="#programs">Программы</a>
+          <a href="#results">Результаты</a>
+          <a href="#advantages">Преимущества</a>
+          <a href="#calculator">Калькулятор</a>
+          <a href="#contact">Контакты</a>
+        </nav>
+        <!-- Mobile navigation toggle -->
+        <button id="navToggle" class="nav-toggle" aria-label="Переключить меню">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <a href="#contact" class="btn btn-primary nav-btn">Оставить заявку</a>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero" data-animate="animate__fadeIn">
+      <div class="container hero-content">
+        <div class="hero-text">
+          <h1>Системный бизнес<br />на&nbsp;маркетплейсах</h1>
+          <p>
+            Подберите нишу, разработайте стратегию и создайте сильный бренд
+            вместе с нашей командой экспертов.
+          </p>
+          <a href="#programs" class="btn btn-primary">
+            Запись на онлайн‑экскурсию
+          </a>
+        </div>
+        <div class="hero-image">
+          <img src="images/hero.png" alt="Иллюстрация бизнеса" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Start Section -->
+    <section id="start" class="start" data-animate="animate__fadeInUp">
+      <div class="container">
+        <h2>Быстрый старт бизнеса с&nbsp;нами&nbsp;— это:</h2>
+        <div class="cards">
+          <div class="card">
+            <i class="fas fa-search-dollar"></i>
+            <h3>Подбор ниши</h3>
+            <p>
+              Определяем направления, которые помогут быстро выйти на рынок и
+              начать зарабатывать.
+            </p>
+          </div>
+          <div class="card">
+            <i class="fas fa-chart-line"></i>
+            <h3>Разработка стратегии</h3>
+            <p>
+              Строим план продвижения и подбираем инструменты под ваш
+              бюджет.
+            </p>
+          </div>
+          <div class="card">
+            <i class="fas fa-cube"></i>
+            <h3>Создание бренда</h3>
+            <p>
+              Помогаем с производством, закупкой и брендингом вашей
+              продукции.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Control Section -->
+    <section id="control" class="control" data-animate="animate__fadeInUp">
+      <div class="container control-content">
+        <div class="control-image">
+          <img
+            src="images/phone.png"
+            alt="Аналитика и графики"
+          />
+        </div>
+        <div class="control-text">
+          <h2>
+            Мы берём на себя контроль<br />и&nbsp;увеличиваем вашу
+            прибыль
+          </h2>
+          <p>
+            Получите системный бизнес на маркетплейсах: от оптимизации
+            процессов до роста оборота.
+          </p>
+          <a href="#contact" class="btn btn-primary">Бесплатная консультация</a>
+          <div class="metrics">
+            <div class="metric">
+              <span class="metric-value">4+</span>
+              <span class="metric-label">проекта</span>
+            </div>
+            <div class="metric">
+              <span class="metric-value">6&nbsp;млн</span>
+              <span class="metric-label">оборот в месяц</span>
+            </div>
+            <div class="metric">
+              <span class="metric-value">7+</span>
+              <span class="metric-label">учеников</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section id="programs" class="programs" data-animate="animate__fadeInUp">
+      <div class="container">
+        <h2>Наши программы</h2>
+        <div class="program-cards">
+          <div class="program-card program-card-green">
+            <h3>Ведение бизнеса «под ключ»</h3>
+            <p>
+              Полное сопровождение вашего бизнеса с&nbsp;нуля до стабильной
+              прибыли на маркетплейсах.
+            </p>
+            <a href="#services" class="btn btn-outline">Подробнее</a>
+          </div>
+          <div class="program-card program-card-blue">
+            <h3>Обучение: с&nbsp;нуля до&nbsp;PRO</h3>
+            <p>
+              Пошаговый курс по созданию системного бизнеса без воды и
+              сложной терминологии.
+            </p>
+            <a href="#services" class="btn btn-outline">Подробнее</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Results Section -->
+    <section id="results" class="results" data-animate="animate__fadeInUp">
+      <div class="container">
+        <h2>Результаты наших клиентов</h2>
+        <div class="result-cards">
+          <div class="result-card">
+            <h4>Ниша товара: женские брюки</h4>
+            <p>
+              <strong>До:</strong> 152&nbsp;млн&nbsp;₽ в год<br />
+              <strong>После:</strong> 1&nbsp;232&nbsp;млн&nbsp;₽ в год
+            </p>
+            <a href="#contact" class="btn btn-primary">Хочу также</a>
+          </div>
+          <div class="result-card">
+            <h4>Ниша товара: свитера и кардиганы</h4>
+            <p>
+              <strong>До:</strong> 60&nbsp;млн&nbsp;₽ в год<br />
+              <strong>После:</strong> 420&nbsp;млн&nbsp;₽ в год
+            </p>
+            <a href="#contact" class="btn btn-primary">Хочу также</a>
+          </div>
+          <div class="result-card">
+            <h4>Ниша товара: детская обувь</h4>
+            <p>
+              <strong>До:</strong> 0&nbsp;₽ (кабинет с нуля)<br />
+              <strong>После:</strong> 36&nbsp;млн&nbsp;₽ в год
+            </p>
+            <a href="#contact" class="btn btn-primary">Хочу также</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Audit Call-to-Action Section -->
+    <section id="audit" class="audit" data-animate="animate__fadeInUp">
+      <div class="container audit-content">
+        <div class="audit-text">
+          <h2>Сколько денег вы теряете каждый день?</h2>
+          <p>
+            Запишитесь на бесплатный разбор вашего магазина с бизнес-аналитиком.
+          </p>
+        </div>
+        <form class="audit-form">
+          <input type="text" placeholder="Имя" required />
+          <input type="tel" placeholder="Телефон" required />
+          <input type="email" placeholder="E‑mail" required />
+          <button type="submit" class="btn btn-dark">
+            Заказать аудит
+          </button>
+          <small
+            >Оставляя заявку, вы соглашаетесь с политикой
+            конфиденциальности</small
+          >
+        </form>
+      </div>
+    </section>
+
+    <!-- Advantages Section -->
+    <section id="advantages" class="advantages" data-animate="animate__fadeInUp">
+      <div class="container">
+        <h2>Почему выбирают нас</h2>
+        <div class="adv-grid">
+          <div class="adv-item">
+            <i class="fas fa-users"></i>
+            <h3>Экспертная команда</h3>
+            <p>
+              Узкопрофильные специалисты закрывают все задачи: от аналитики
+              до логистики.
+            </p>
+          </div>
+          <div class="adv-item">
+            <i class="fas fa-check-circle"></i>
+            <h3>Избавим от рутины</h3>
+            <p>
+              Берём на себя работу с поставщиками, документооборот и
+              маркетинг.
+            </p>
+          </div>
+          <div class="adv-item">
+            <i class="fas fa-lightbulb"></i>
+            <h3>Методики и алгоритмы</h3>
+            <p>
+              Применяем проверенные стратегии продвижения и оптимизации.
+            </p>
+          </div>
+          <div class="adv-item">
+            <i class="fas fa-box-open"></i>
+            <h3>Закупки и производство</h3>
+            <p>
+              Находим надёжных поставщиков и организуем брендинг
+              продукции.
+            </p>
+          </div>
+          <div class="adv-item">
+            <i class="fas fa-warehouse"></i>
+            <h3>Фулфилмент</h3>
+            <p>
+              Обеспечиваем хранение, упаковку и доставку товара до
+              склада маркетплейса.
+            </p>
+          </div>
+          <div class="adv-item">
+            <i class="fas fa-tachometer-alt"></i>
+            <h3>Оперативность</h3>
+            <p>
+              Быстро решаем возникшие проблемы и даём прозрачную
+              отчётность.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Calculator Section -->
+    <section id="calculator" class="calculator" data-animate="animate__fadeInUp">
+      <div class="container">
+        <h2>Рассчитайте стоимость ведения</h2>
+        <p class="calculator-intro">
+          Выберите количество SKU (артикулов), чтобы узнать ориентировочную стоимость комплексного ведения вашего кабинета.
+        </p>
+        <div class="cost-calculator">
+          <label for="skuRange" class="sku-label">
+            Количество SKU: <span id="skuValue">1</span>
+          </label>
+          <input type="range" id="skuRange" min="1" max="150" value="1" step="1" />
+          <div class="cost-display">
+            <p>Стоимость ведения:</p>
+            <span id="skuCost">65 000 руб./мес</span>
+          </div>
+          <a href="#contact" class="btn btn-primary cost-button">Заказать ведение</a>
+        </div>
+        <ul class="calculator-features">
+          <li><i class="fas fa-check-circle"></i> Индивидуальная стратегия продвижения</li>
+          <li><i class="fas fa-check-circle"></i> Создание и оптимизация карточек товаров</li>
+          <li><i class="fas fa-check-circle"></i> Полное брендирование и фулфилмент</li>
+          <li><i class="fas fa-check-circle"></i> Аналитика и отчётность</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services" data-animate="animate__fadeInUp">
+      <div class="container">
+        <h2>Направления работы</h2>
+        <div class="service-cards">
+          <div class="service-card">
+            <img src="images/phone.png" alt="Ведение под ключ" />
+            <div class="service-info">
+              <h3>Ведение «под ключ»</h3>
+              <p>
+                Полный цикл сопровождения вашего бизнеса на маркетплейсах
+                – от анализа до доставки.
+              </p>
+              <a href="#contact" class="btn btn-secondary"
+                >Узнать подробнее</a
+              >
+            </div>
+          </div>
+          <div class="service-card">
+            <img src="images/training.png" alt="Трекерство" />
+            <div class="service-info">
+              <h3>Трекерство</h3>
+              <p>
+                Быстрый рост действующих кабинетов под руководством
+                экспертов.
+              </p>
+              <a href="#contact" class="btn btn-secondary"
+                >Узнать подробнее</a
+              >
+            </div>
+          </div>
+          <div class="service-card">
+            <img src="images/mentorship.png" alt="Обучение" />
+            <div class="service-info">
+              <h3>Обучение</h3>
+              <p>
+                Курс от нуля до PRO с понятными алгоритмами
+                продвижения.
+              </p>
+              <a href="#contact" class="btn btn-secondary"
+                >Узнать подробнее</a
+              >
+            </div>
+          </div>
+          <div class="service-card">
+            <img src="images/factory.png" alt="Наставничество" />
+            <div class="service-info">
+              <h3>Наставничество</h3>
+              <p>
+                Программа роста бизнеса с поддержкой опытных наставников.
+              </p>
+              <a href="#contact" class="btn btn-secondary"
+                >Узнать подробнее</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials" data-animate="animate__fadeInUp">
+      <div class="container">
+        <h2>Отзывы наших клиентов</h2>
+        <div class="testimonial-grid">
+          <div class="testimonial">
+            <p>
+              «Команда RefGroup помогла нам выйти на маркетплейс и быстро
+              увеличить оборот. Спасибо за вашу работу!»
+            </p>
+            <span>— Клиент&nbsp;А</span>
+          </div>
+          <div class="testimonial">
+            <p>
+              «Обучение было максимально полезным. Теперь
+              самостоятельно управляю своим магазином и вижу стабильный
+              рост продаж.»
+            </p>
+            <span>— Клиент&nbsp;Б</span>
+          </div>
+          <div class="testimonial">
+            <p>
+              «Рекомендую всем, кто хочет создать бренд с нуля.
+              Наставники поддерживали на каждом шаге.»
+            </p>
+            <span>— Клиент&nbsp;В</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="process" data-animate="animate__fadeInUp">
+      <div class="container">
+        <h2>Как мы работаем</h2>
+        <div class="timeline">
+          <div class="step">
+            <span class="step-number">1</span>
+            <h3>Консультация</h3>
+            <p>
+              Определяем ваши цели и подбираем необходимый набор услуг.
+            </p>
+          </div>
+          <div class="step">
+            <span class="step-number">2</span>
+            <h3>Стратегия</h3>
+            <p>
+              Разрабатываем индивидуальный план продвижения и
+              развития.
+            </p>
+          </div>
+          <div class="step">
+            <span class="step-number">3</span>
+            <h3>Запуск</h3>
+            <p>
+              Организуем запуск: от закупок до оформления карточек.
+            </p>
+          </div>
+          <div class="step">
+            <span class="step-number">4</span>
+            <h3>Рост</h3>
+            <p>
+              Поддерживаем и масштабируем ваш бизнес, отслеживая
+              результаты.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Consultation Section -->
+    <section id="consultation" class="consultation" data-animate="animate__fadeInUp">
+      <div class="container consultation-content">
+        <h2>Записаться на консультацию</h2>
+        <p>
+          Оставьте заявку — и мы перезвоним, чтобы ответить на все ваши
+          вопросы.
+        </p>
+        <a href="#contact" class="btn btn-primary btn-large"
+          >Запись на консультацию</a
+        >
+      </div>
+    </section>
+
+    <!-- Partner Section -->
+    <section id="partner" class="partner" data-animate="animate__fadeInUp">
+      <div class="container partner-content">
+        <div class="partner-text">
+          <h2>Партнерская программа</h2>
+          <p>
+            Зарабатывайте до&nbsp;15&nbsp;% с каждого клиента по нашей
+            партнёрской программе.
+          </p>
+          <a href="#contact" class="btn btn-primary">Стать партнёром</a>
+        </div>
+        <div class="partner-image">
+          <img
+            src="images/partner.png"
+            alt="Партнёрская программа"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="footer">
+      <div class="container footer-content">
+        <div class="footer-column">
+          <div class="footer-logo">Ref<span class="accent">Group</span></div>
+          <p class="footer-tagline">
+            Системный подход к вашему бизнесу на маркетплейсах.
+          </p>
+        </div>
+        <div class="footer-column">
+          <h4>Навигация</h4>
+          <a href="#services">Услуги</a>
+          <a href="#programs">Программы</a>
+          <a href="#results">Результаты</a>
+          <a href="#advantages">Преимущества</a>
+          <a href="#process">Как мы работаем</a>
+        </div>
+        <div class="footer-column">
+          <h4>Контакты</h4>
+          <p>+7&nbsp;(999)&nbsp;123‑45‑67</p>
+          <div class="social">
+            <a href="#" aria-label="Telegram"
+              ><i class="fab fa-telegram"></i></a
+            >
+            <a href="#" aria-label="Instagram"
+              ><i class="fab fa-instagram"></i></a
+            >
+            <a href="#" aria-label="WhatsApp"
+              ><i class="fab fa-whatsapp"></i></a
+            >
+          </div>
+        </div>
+        <div class="footer-column">
+          <h4>Наши офисы</h4>
+          <p>г.&nbsp;Москва, ул.&nbsp;Пример, 1</p>
+          <p>г.&nbsp;Амстердам, Examplestraat, 5</p>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <p>&copy;&nbsp;2025&nbsp;RefGroup. Все права защищены.</p>
+      </div>
+    </footer>
+
+    <!-- Calculator Scripts -->
+    <script>
+      // Обновляет отображение стоимости ведения в зависимости от выбранного количества SKU
+      function updateCost() {
+        const sku = parseInt(document.getElementById('skuRange').value) || 1;
+        // Обновляем отображение выбранного числа артикулов
+        document.getElementById('skuValue').textContent = sku;
+        let cost;
+        if (sku <= 40) {
+          cost = 65000;
+        } else if (sku <= 60) {
+          cost = 70000;
+        } else if (sku <= 80) {
+          cost = 75000;
+        } else if (sku <= 100) {
+          cost = 85000;
+        } else if (sku <= 150) {
+          cost = 95000;
+        } else {
+          cost = 0;
+        }
+        // Если цена определена, форматируем её, иначе показываем «По запросу»
+        const costText = cost
+          ? cost.toLocaleString('ru-RU') + ' руб./мес'
+          : 'По запросу';
+        document.getElementById('skuCost').textContent = costText;
+      }
+      // При загрузке страницы и изменении бегунка пересчитываем стоимость
+      document.addEventListener('DOMContentLoaded', function () {
+        const range = document.getElementById('skuRange');
+        if (range) {
+          updateCost();
+          range.addEventListener('input', updateCost);
+        }
+      });
+    </script>
+
+    <!-- UI interactions and animations -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        // Mobile navigation toggle
+        const navToggle = document.getElementById('navToggle');
+        const navigation = document.querySelector('.navigation');
+        if (navToggle && navigation) {
+          navToggle.addEventListener('click', function () {
+            navigation.classList.toggle('show');
+          });
+        }
+        // Intersection Observer for animations
+        const animatedElements = document.querySelectorAll('[data-animate]');
+        const observer = new IntersectionObserver(
+          (entries, obs) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                const animClass = entry.target.dataset.animate;
+                entry.target.classList.add('animate__animated', animClass);
+                obs.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.1 }
+        );
+        animatedElements.forEach((el) => observer.observe(el));
+      });
+    </script>
+  </body>
+</html>
