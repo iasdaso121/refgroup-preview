@@ -2,8 +2,8 @@
 <html lang="ru">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>RefGroup – Системный бизнес на маркетплейсах</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Prime Analytics – Системный бизнес на маркетплейсах</title>
     <!-- Google Fonts -->
     <link
       rel="preconnect"
@@ -38,13 +38,13 @@
   </head>
   <body>
     <!-- Header -->
-    <header class="header">
+    <header class="header"> 
       <div class="container nav">
         <div class="logo">
-          Ref<span class="accent">Group</span>
+          <img src="PrimeLogo.png" alt="Лого" />
         </div>
-        <!-- Navigation links -->
-        <nav class="navigation">
+
+        <nav class="navigation" id="siteNav">
           <a href="#services">Услуги</a>
           <a href="#programs">Программы</a>
           <a href="#results">Результаты</a>
@@ -52,13 +52,14 @@
           <a href="#calculator">Калькулятор</a>
           <a href="#contact">Контакты</a>
         </nav>
-        <!-- Mobile navigation toggle -->
-        <button id="navToggle" class="nav-toggle" aria-label="Переключить меню">
-          <span></span>
-          <span></span>
-          <span></span>
+
+        <button id="navToggle" class="nav-toggle" aria-label="Переключить меню" aria-expanded="false" aria-controls="siteNav">
+          <span></span><span></span><span></span>
         </button>
-        <a href="#contact" class="btn btn-primary nav-btn">Оставить заявку</a>
+
+
+        <button class="btn btn-primary nav-btn" data-modal-open="contactModal">Оставить заявку</button>
+
       </div>
     </header>
 
@@ -71,16 +72,40 @@
             Подберите нишу, разработайте стратегию и создайте сильный бренд
             вместе с нашей командой экспертов.
           </p>
-          <a href="#programs" class="btn btn-primary">
+          <button class="btn btn-primary" data-modal-open="contactModal">
             Запись на онлайн‑экскурсию
-          </a>
+          </button>
         </div>
+      </div> 
         <div class="hero-image">
-          <img src="hero.png" alt="Иллюстрация бизнеса" />
+          <div class="hero-stage">
+            <img class="hero-chel"   src="chel.png"   alt="Специалист агентства" />
+            <img class="hero-grafik" src="grafik.png" alt="График роста" />
+
+            <img class="hero-badge hero-wb"   src="wb.png"   alt="Wildberries" />
+            <img class="hero-badge hero-ozon" src="ozon.png" alt="Ozon" />
+
+            <div class="hero-counter" aria-label="Количество проектов">
+              <span class="hero-counter-number" data-target="258">0</span>
+              <span class="hero-counter-label">Проектов</span>
+            </div>
+          </div>
+        </div>
+              <!-- Бегущая полоса -->
+      <div class="ticker" id="features-ticker">
+        <div class="ticker__mask">
+          <ul class="ticker__lane" id="lane1">
+            <li class="ticker__item">СВОЕ ПРОИЗВОДСТВО</li>
+            <li class="ticker__item">НАСТАВНИЧЕСТВО</li>
+            <li class="ticker__item">БИЗНЕС НА WILDBERRIES</li>
+            <li class="ticker__item">ВЕДЕНИЕ СЕЛЛЕРОВ</li>
+            <li class="ticker__item">ОБУЧЕНИЕ С НУЛЯ</li>
+          </ul>
+          <ul class="ticker__lane" id="lane2" aria-hidden="true"></ul>
         </div>
       </div>
-    </section>
-
+    </div>  
+    </section>  
     <!-- Start Section -->
     <section id="start" class="start" data-animate="animate__fadeInUp">
       <div class="container">
@@ -132,7 +157,7 @@
             Получите системный бизнес на маркетплейсах: от оптимизации
             процессов до роста оборота.
           </p>
-          <a href="#contact" class="btn btn-primary">Бесплатная консультация</a>
+          <button class="btn btn-primary" data-modal-open="contactModal">Бесплатная консультация</button>
           <div class="metrics">
             <div class="metric">
               <span class="metric-value">4+</span>
@@ -158,19 +183,20 @@
         <div class="program-cards">
           <div class="program-card program-card-green">
             <h3>Ведение бизнеса «под ключ»</h3>
-            <p>
-              Полное сопровождение вашего бизнеса с&nbsp;нуля до стабильной
-              прибыли на маркетплейсах.
-            </p>
-            <a href="#services" class="btn btn-outline">Подробнее</a>
+            <p>Полное сопровождение вашего бизнеса с&nbsp;нуля до стабильной прибыли на маркетплейсах.</p>
+
+            <a href="#"
+              class="btn btn-outline"
+              data-modal-open="contactModal">Подробнее</a>
           </div>
+
           <div class="program-card program-card-blue">
             <h3>Обучение: с&nbsp;нуля до&nbsp;PRO</h3>
-            <p>
-              Пошаговый курс по созданию системного бизнеса без воды и
-              сложной терминологии.
-            </p>
-            <a href="#services" class="btn btn-outline">Подробнее</a>
+            <p>Пошаговый курс по созданию системного бизнеса без воды и сложной терминологии.</p>
+
+            <a href="#"
+              class="btn btn-outline"
+              data-modal-open="contactModal">Подробнее</a>
           </div>
         </div>
       </div>
@@ -182,28 +208,37 @@
         <h2>Результаты наших клиентов</h2>
         <div class="result-cards">
           <div class="result-card">
+            <div class="result-image">
+              <img class="result-img1" src="bruki.png" alt="результат" />
+            </div>
             <h4>Ниша товара: женские брюки</h4>
-            <p>
+            <p>  
               <strong>До:</strong> 152&nbsp;млн&nbsp;₽ в год<br />
               <strong>После:</strong> 1&nbsp;232&nbsp;млн&nbsp;₽ в год
             </p>
-            <a href="#contact" class="btn btn-primary">Хочу также</a>
+            <button class="btn btn-primary" data-modal-open="contactModal">Хочу также</button>
           </div>
           <div class="result-card">
+            <div class="result-image">
+              <img class="result-img1" src="result2.png" alt="результат2" />
+            </div>
             <h4>Ниша товара: свитера и кардиганы</h4>
             <p>
               <strong>До:</strong> 60&nbsp;млн&nbsp;₽ в год<br />
               <strong>После:</strong> 420&nbsp;млн&nbsp;₽ в год
             </p>
-            <a href="#contact" class="btn btn-primary">Хочу также</a>
+            <button class="btn btn-primary" data-modal-open="contactModal">Хочу также</button>
           </div>
           <div class="result-card">
+            <div class="result-image">
+              <img class="result-img1" src="result3.png" alt="результат" />
+            </div>
             <h4>Ниша товара: детская обувь</h4>
             <p>
               <strong>До:</strong> 0&nbsp;₽ (кабинет с нуля)<br />
               <strong>После:</strong> 36&nbsp;млн&nbsp;₽ в год
             </p>
-            <a href="#contact" class="btn btn-primary">Хочу также</a>
+            <button class="btn btn-primary" data-modal-open="contactModal">Хочу также</button>
           </div>
         </div>
       </div>
@@ -305,7 +340,7 @@
             <p>Стоимость ведения:</p>
             <span id="skuCost">65 000 руб./мес</span>
           </div>
-          <a href="#contact" class="btn btn-primary cost-button">Заказать ведение</a>
+          <button class="btn btn-primary cost-button" data-modal-open="contactModal">Заказать ведение</button>
         </div>
         <ul class="calculator-features">
           <li><i class="fas fa-check-circle"></i> Индивидуальная стратегия продвижения</li>
@@ -329,9 +364,7 @@
                 Полный цикл сопровождения вашего бизнеса на маркетплейсах
                 – от анализа до доставки.
               </p>
-              <a href="#contact" class="btn btn-secondary"
-                >Узнать подробнее</a
-              >
+              <button class="btn btn-secondary" data-modal-open="contactModal">Узнать подробнее</button>
             </div>
           </div>
           <div class="service-card">
@@ -342,9 +375,7 @@
                 Быстрый рост действующих кабинетов под руководством
                 экспертов.
               </p>
-              <a href="#contact" class="btn btn-secondary"
-                >Узнать подробнее</a
-              >
+              <button class="btn btn-secondary" data-modal-open="contactModal">Узнать подробнее</button>
             </div>
           </div>
           <div class="service-card">
@@ -355,9 +386,7 @@
                 Курс от нуля до PRO с понятными алгоритмами
                 продвижения.
               </p>
-              <a href="#contact" class="btn btn-secondary"
-                >Узнать подробнее</a
-              >
+              <button class="btn btn-secondary" data-modal-open="contactModal">Узнать подробнее</button>
             </div>
           </div>
           <div class="service-card">
@@ -367,9 +396,7 @@
               <p>
                 Программа роста бизнеса с поддержкой опытных наставников.
               </p>
-              <a href="#contact" class="btn btn-secondary"
-                >Узнать подробнее</a
-              >
+              <button class="btn btn-secondary" data-modal-open="contactModal">Узнать подробнее</button>
             </div>
           </div>
         </div>
@@ -383,7 +410,7 @@
         <div class="testimonial-grid">
           <div class="testimonial">
             <p>
-              «Команда RefGroup помогла нам выйти на маркетплейс и быстро
+              «Команда Prime Analytics помогла нам выйти на маркетплейс и быстро
               увеличить оборот. Спасибо за вашу работу!»
             </p>
             <span>— Клиент&nbsp;А</span>
@@ -454,9 +481,7 @@
           Оставьте заявку — и мы перезвоним, чтобы ответить на все ваши
           вопросы.
         </p>
-        <a href="#contact" class="btn btn-primary btn-large"
-          >Запись на консультацию</a
-        >
+        <button class="btn btn-primary btn-large" data-modal-open="contactModal">Запись на консультацию</button>
       </div>
     </section>
 
@@ -469,7 +494,7 @@
             Зарабатывайте до&nbsp;15&nbsp;% с каждого клиента по нашей
             партнёрской программе.
           </p>
-          <a href="#contact" class="btn btn-primary">Стать партнёром</a>
+          <button class="btn btn-primary" data-modal-open="contactModal" >Стать партнёром</button>
         </div>
         <div class="partner-image">
           <img
@@ -484,7 +509,9 @@
     <footer id="contact" class="footer">
       <div class="container footer-content">
         <div class="footer-column">
-          <div class="footer-logo">Ref<span class="accent">Group</span></div>
+          <div class="logo">
+            <img src="PrimeLogo.png" alt="Лого" />
+          </div>
           <p class="footer-tagline">
             Системный подход к вашему бизнесу на маркетплейсах.
           </p>
@@ -500,17 +527,17 @@
         <div class="footer-column">
           <h4>Контакты</h4>
           <p>+7&nbsp;(999)&nbsp;123‑45‑67</p>
-          <div class="social">
-            <a href="#" aria-label="Telegram"
-              ><i class="fab fa-telegram"></i></a
-            >
-            <a href="#" aria-label="Instagram"
-              ><i class="fab fa-instagram"></i></a
-            >
-            <a href="#" aria-label="WhatsApp"
-              ><i class="fab fa-whatsapp"></i></a
-            >
-          </div>
+          <div class="social-links social-links--lg">
+          <a class="social-link social-link--tg" href="https://t.me/primeanalytics24" aria-label="Telegram">
+            <i class="fab fa-telegram"></i>
+          </a>
+          <a class="social-link social-link--ig" href="#" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a class="social-link social-link--wa" href="#" aria-label="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+        </div>
         </div>
         <div class="footer-column">
           <h4>Наши офисы</h4>
@@ -522,6 +549,45 @@
         <p>&copy;&nbsp;2025&nbsp;RefGroup. Все права защищены.</p>
       </div>
     </footer>
+
+    <!-- Modal: Контактная форма -->
+    <div id="contactModal" class="modal" aria-hidden="true">
+      <div class="modal__backdrop" data-modal-close></div>
+
+      <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="contactModalTitle">
+        <button class="modal__close" aria-label="Закрыть" data-modal-close>✕</button>
+
+        <h2 id="contactModalTitle" class="modal__title">Оставьте свои контактные данные</h2>
+        <p class="modal__subtitle">Наш менеджер свяжется с вами в ближайшее время.</p>
+
+        <form class="modal__form" action="#" method="post" novalidate>
+          <label class="field">
+            <input type="text" name="name" placeholder="Имя" required>
+          </label>
+
+          <label class="field field--phone">
+            <span class="flag" aria-hidden="true">🇷🇺</span>
+            <input id="phone" type="tel" name="phone"
+                  inputmode="tel"
+                  placeholder="+7 (___) ___-__-__"
+                  autocomplete="tel"
+                  pattern="^\+7\s\(\d{3}\)\s\d{3}-\d{2}-\d{2}$"
+                  required>
+          </label>
+
+          <label class="field">
+            <input type="email" name="email" placeholder="Почта" autocomplete="email" required>
+          </label>
+
+          <button type="submit" class="btn-primary">Связаться</button>
+          <p class="modal__legal">
+            Оставляя заявку, вы соглашаетесь на
+            <a href="/privacy" target="_blank" rel="noopener">обработку персональных данных</a>.
+          </p>
+        </form>
+      </div>
+    </div>
+
 
     <!-- Calculator Scripts -->
     <script>
@@ -588,5 +654,160 @@
         animatedElements.forEach((el) => observer.observe(el));
       });
     </script>
+    <!-- бегущая полоса -->
+    <script>
+    (function(){
+      const root = document.getElementById('features-ticker');
+      if(!root) return;
+
+      const mask  = root.querySelector('.ticker__mask');
+      const lane1 = root.querySelector('#lane1');
+      const lane2 = root.querySelector('#lane2');
+
+      // Ждём шрифты/страницу, чтобы измерения были точными
+      const ready = ('fonts' in document && document.fonts.ready)
+        ? document.fonts.ready
+        : new Promise(res => window.addEventListener('load', res));
+
+      ready.then(init);
+
+      function init(){
+        // 1) Гарантируем, что ширина lane1 > ширины маски,
+        //    чтобы lane2 стартовала за пределом экрана
+        ensureLaneWiderThanMask();
+
+        // 2) Клонируем контент lane1 в lane2 (один раз)
+        lane2.innerHTML = lane1.innerHTML;
+
+        // 3) Выставляем точную ширину цикла и запускаем анимацию
+        setCycleWidth();
+        root.classList.add('is-ready');
+
+        // 4) Пересчёт при ресайзе без рывка
+        let raf;
+        window.addEventListener('resize', () => {
+          cancelAnimationFrame(raf);
+          root.classList.remove('is-ready');            // пауза
+          raf = requestAnimationFrame(() => {
+            setCycleWidth();
+            // форсим рефлоу, затем снова включаем
+            void lane1.offsetWidth;
+            root.classList.add('is-ready');
+          });
+        }, { passive:true });
+      }
+
+      function ensureLaneWiderThanMask(){
+        // если один набор короче видимой области, дублируем его внутри lane1
+        const items = Array.from(lane1.children);
+        if (!items.length) return;
+
+        while (lane1.scrollWidth < mask.clientWidth + 1) {
+          lane1.append(...items.map(n => n.cloneNode(true)));
+        }
+      }
+
+      function setCycleWidth(){
+        // ширина цикла = фактическая ширина lane1 (после расширения)
+        const w = lane1.scrollWidth;
+        root.style.setProperty('--w', w + 'px');
+      }
+    })();
+    </script>
+                                                                               <!-- Секция hero -->
+    <script>
+(function(){
+  const el = document.querySelector('.hero-counter-number');
+  if(!el) return;
+
+  const maxTarget = 568;
+  const target = Math.min(parseInt(el.dataset.target || maxTarget, 10), maxTarget);
+  const duration = 9999; // мс
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function animate(){
+    if(reduce){ el.textContent = String(target); return; }
+    const start = performance.now();
+    function tick(now){
+      const t = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - t, 3);      // easeOutCubic
+      el.textContent = String(Math.round(eased * target));
+      if(t < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+
+  // Запуск, когда круг виден (чтобы не дёргать за кадром)
+  const io = new IntersectionObserver((entries) => {
+    if(entries.some(e => e.isIntersecting)){
+      animate(); io.disconnect();
+    }
+  }, { threshold: 0.35 });
+  io.observe(el);
+})();
+</script>
+
+<script>
+(function(){
+  const modal = document.getElementById('contactModal');
+  if(!modal) return;
+  const dialog = modal.querySelector('.modal__dialog');
+  const phone  = modal.querySelector('#phone');
+  let lastActive = null;
+
+  // OPEN
+  document.addEventListener('click', (e)=>{
+    const btn = e.target.closest('[data-modal-open="contactModal"]');
+    if(!btn) return;
+    lastActive = document.activeElement;
+    modal.classList.add('is-open');
+    document.body.classList.add('modal-open');
+    setTimeout(()=> (modal.querySelector('input[name="name"]')||phone).focus(), 50);
+  });
+
+  // CLOSE
+  function close(){
+    modal.classList.remove('is-open');
+    document.body.classList.remove('modal-open');
+    if(lastActive) lastActive.focus();
+  }
+  modal.addEventListener('click', (e)=>{
+    if(e.target.hasAttribute('data-modal-close') || !dialog.contains(e.target)) close();
+  });
+  document.addEventListener('keydown', (e)=>{
+    if(e.key === 'Escape' && modal.classList.contains('is-open')) close();
+  });
+
+  // Simple RU phone mask: +7 (999) 999-99-99
+  function maskPhone(value){
+    const d = value.replace(/\D/g,'').replace(/^8/, '7');
+    const p = ['+7',' (', d.slice(1,4), ') ', d.slice(4,7), '-', d.slice(7,9), '-', d.slice(9,11)]
+      .join('').replace(/[-\s()]+$/,'');
+    return p;
+  }
+  phone.addEventListener('input', (e)=>{
+    const start = e.target.selectionStart;
+    e.target.value = maskPhone(e.target.value);
+    // каретка к концу (просто и надёжно)
+    e.target.setSelectionRange(e.target.value.length, e.target.value.length);
+  });
+  phone.addEventListener('focus', (e)=>{
+    if(!e.target.value) e.target.value = '+7 ';
+  });
+})();
+document.addEventListener('click', (e)=>{
+  const btn = e.target.closest('[data-modal-open="contactModal"]');
+  if (!btn) return;
+  if (btn.tagName === 'A') e.preventDefault();   // ← чтобы не прыгал якорь
+  // дальше — открытие модалки:
+  lastActive = document.activeElement;
+  modal.classList.add('is-open');
+  document.body.classList.add('modal-open');
+  setTimeout(()=> (modal.querySelector('input[name="name"]')||phone).focus(), 50);
+});
+
+</script>
+
+
   </body>
 </html>
