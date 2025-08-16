@@ -1522,3 +1522,93 @@ body.no-scroll{ overflow:hidden; }
 @media (min-width: 770px){
   #siteNav .nav-cta{ display:none !important; }
 }
+
+/* ====== КАЛЬКУЛЯТОР: прокачанный range — БЕЗ бабблы ====== */
+.cost-calculator{
+  --brand:#43b64a;            /* фирменный зелёный */
+  --track:#e6efe4;            /* фон трека */
+  --thumb:#ffffff;            /* цвет "шарика" */
+  --thumb-size:28px;          /* Ø ползунка */
+}
+
+/* обёртка — нужна только для "бегающего блика" поверх трека */
+.cost-calculator .range-wrap{
+  position: relative;
+  padding-top: 0;             /* бабблы нет — место сверху не нужно */
+}
+
+/* бегущий блик по треку (поверх визуально) */
+.cost-calculator .range-wrap::before{
+  content:""; position:absolute; left:0; right:0;
+  top: calc((var(--thumb-size) - 8px)/2);  /* центр по высоте трека */
+  height: 8px; border-radius:999px; pointer-events:none;
+  background:
+    linear-gradient(120deg, transparent 0%, rgba(255,255,255,.65) 20%, transparent 40%)
+    0 0 / 240px 8px no-repeat;
+  mix-blend-mode: screen; opacity:.35; filter: blur(.2px);
+  animation: range-sheen 2.7s linear infinite;
+}
+@keyframes range-sheen{ to{ background-position:240px 0; } }
+
+/* БАЗА: сам range */
+.cost-calculator input[type="range"]{
+  -webkit-appearance:none; appearance:none;
+  width:100%; height: var(--thumb-size);
+  background: transparent; outline: none; margin: 0;
+  --pct: 0%;                                /* проценты для WebKit-трека */
+}
+
+/* Трек — WebKit */
+.cost-calculator input[type="range"]::-webkit-slider-runnable-track{
+  height: 8px; border-radius: 999px; position: relative;
+  background:
+    linear-gradient(90deg, var(--brand) 0 var(--pct), var(--track) var(--pct) 100%);
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,.04);
+}
+
+/* Ползунок — WebKit */
+.cost-calculator input[type="range"]::-webkit-slider-thumb{
+  -webkit-appearance:none; appearance:none;
+  width: var(--thumb-size); height: var(--thumb-size);
+  border-radius: 50%;
+  background: radial-gradient(120% 120% at 30% 30%, #fff 0 40%, var(--thumb) 41% 100%);
+  border: 3px solid #fff;
+  box-shadow:
+    0 0 0 6px rgba(67,182,74,.18),
+    0 10px 24px rgba(67,182,74,.35);
+  margin-top: calc((var(--thumb-size) - 8px)/-2);   /* выровнять по треку */
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.cost-calculator input[type="range"]:hover::-webkit-slider-thumb{ transform: scale(1.04); }
+.cost-calculator input[type="range"]:active::-webkit-slider-thumb{
+  transform: scale(1.08);
+  box-shadow:
+    0 0 0 10px rgba(67,182,74,.20),
+    0 14px 34px rgba(67,182,74,.45);
+}
+
+/* Firefox: трек/прогресс/ползунок */
+.cost-calculator input[type="range"]::-moz-range-track{
+  height: 8px; background: var(--track); border-radius:999px;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,.04);
+}
+.cost-calculator input[type="range"]::-moz-range-progress{
+  height: 8px; background: var(--brand); border-radius:999px;
+}
+.cost-calculator input[type="range"]::-moz-range-thumb{
+  width: var(--thumb-size); height: var(--thumb-size);
+  border: 3px solid #fff; border-radius:50%; background: var(--thumb);
+  box-shadow:
+    0 0 0 6px rgba(67,182,74,.18),
+    0 10px 24px rgba(67,182,74,.35);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.cost-calculator input[type="range"]:active::-moz-range-thumb{ transform: scale(1.08); }
+
+/* Лёгкая реакция цены */
+.cost-display.flash{ animation: price-pop .22s ease; }
+@keyframes price-pop{
+  0%{ transform:scale(1); }
+  40%{ transform:scale(1.04); }
+  100%{ transform:scale(1); }
+}

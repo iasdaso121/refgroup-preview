@@ -878,6 +878,56 @@ document.addEventListener('click', (e)=>{
 })();
 </script>
 
+<script>
+(function(){
+  const range   = document.getElementById('skuRange');
+  const outVal  = document.getElementById('skuValue');
+  const outCost = document.getElementById('skuCost');
+  const costBox = document.querySelector('.cost-display');
+  if(!range || !outVal || !outCost || !costBox) return;
+
+  // Обернём range в .range-wrap (для блика) — без бабблы
+  if (!range.parentElement.classList.contains('range-wrap')) {
+    const wrap = document.createElement('div');
+    wrap.className = 'range-wrap';
+    range.parentNode.insertBefore(wrap, range);
+    wrap.appendChild(range);
+  }
+
+  // Форматтер цены
+  const fmt = new Intl.NumberFormat('ru-RU');
+
+  // Ориентировочная формула стоимости
+  function calcPrice(n){
+    const base = 65000; // 1 SKU
+    if (n <= 10) return base + (n-1)*3000;
+    if (n <= 50) return base + 9*3000 + (n-10)*2000;
+    return base + 9*3000 + 40*2000 + (n-50)*1000;
+  }
+
+  function update(){
+    const min = +range.min, max = +range.max, val = +range.value;
+    const pct = (val - min) / (max - min) * 100;
+
+    // WebKit: процент заливаем трек через CSS-переменную
+    range.style.setProperty('--pct', pct + '%');
+
+    // Вывод
+    outVal.textContent = val;
+    outCost.textContent = fmt.format(calcPrice(val)) + ' руб./мес';
+
+    // лёгкий «поп» у стоимости
+    costBox.classList.remove('flash');
+    void costBox.offsetWidth;
+    costBox.classList.add('flash');
+  }
+
+  update();
+  range.addEventListener('input', update);
+  window.addEventListener('resize', update);
+})();
+</script>
+
 
   </body>
 </html>
