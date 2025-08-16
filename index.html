@@ -255,9 +255,9 @@
           </p>
         </div>
         <form class="audit-form">
-          <input type="text" placeholder="Имя" required />
-          <input type="tel" placeholder="Телефон" required />
-          <input type="email" placeholder="E‑mail" required />
+          <input type="text" name="name" placeholder="Имя" required />
+          <input type="tel" name="phone" placeholder="Телефон" required />
+          <input type="email" name="email" placeholder="E‑mail" required />
           <button type="submit" class="btn btn-dark">
             Заказать аудит
           </button>
@@ -786,6 +786,41 @@ document.addEventListener('click', (e)=>{
   setTimeout(()=> (modal.querySelector('input[name="name"]')||phone).focus(), 50);
 });
 
+</script>
+
+<script>
+(function(){
+  const TOKEN = 'YOUR_TELEGRAM_BOT_TOKEN';
+  const CHAT_ID = 'YOUR_TELEGRAM_CHAT_ID';
+  const API_URL = `https://api.telegram.org/bot${TOKEN}/sendMessage`;
+
+  function sendToTelegram(form){
+    const data = new FormData(form);
+    const text = `Новая заявка:\nИмя: ${data.get('name') || ''}\nТелефон: ${data.get('phone') || ''}\nEmail: ${data.get('email') || ''}`;
+
+    fetch(API_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ chat_id: CHAT_ID, text })
+    })
+    .then(resp => {
+      if (resp.ok) {
+        alert('Заявка отправлена!');
+        form.reset();
+      } else {
+        throw new Error('Network response was not ok');
+      }
+    })
+    .catch(() => alert('Ошибка отправки'));
+  }
+
+  document.querySelectorAll('.audit-form, .modal__form').forEach(form => {
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      sendToTelegram(form);
+    });
+  });
+})();
 </script>
 
 
