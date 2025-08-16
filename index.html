@@ -789,6 +789,95 @@ document.addEventListener('click', (e)=>{
 </script>
 <script src="form.js"></script>
 
+<script>
+(function(){
+  const btn = document.getElementById('navToggle');
+  const nav = document.getElementById(btn?.getAttribute('aria-controls') || 'siteNav');
+  if(!btn || !nav) return;
+
+  // Бэкдроп (создаём, если нет)
+  let bd = document.querySelector('.nav-backdrop');
+  if(!bd){
+    bd = document.createElement('div');
+    bd.className = 'nav-backdrop';
+    document.body.appendChild(bd);
+  }
+
+  // Портал: на время открытия переносим nav в body — обход любых z-index/overflow у шапки
+  const placeholder = document.createComment('nav-placeholder');
+  let portaled = false;
+  function portalIn(){
+    if(portaled) return;
+    nav.parentNode.insertBefore(placeholder, nav);
+    document.body.appendChild(nav);
+    portaled = true;
+  }
+  function portalOut(){
+    if(!portaled) return;
+    placeholder.parentNode.insertBefore(nav, placeholder);
+    placeholder.remove(); portaled = false;
+  }
+
+  function openMenu(){
+    portalIn();
+    btn.classList.add('is-active'); btn.setAttribute('aria-expanded','true');
+    nav.classList.add('is-open');
+    bd.hidden = false; requestAnimationFrame(()=> bd.classList.add('is-open'));
+    document.body.classList.add('no-scroll');
+  }
+  function closeMenu(){
+    btn.classList.remove('is-active'); btn.setAttribute('aria-expanded','false');
+    nav.classList.remove('is-open');
+    bd.classList.remove('is-open'); document.body.classList.remove('no-scroll');
+    setTimeout(()=> (bd.hidden = true), 200);
+    portalOut();
+  }
+
+  btn.addEventListener('click', ()=> nav.classList.contains('is-open') ? closeMenu() : openMenu());
+  bd.addEventListener('click', closeMenu);
+  document.addEventListener('keydown', (e)=>{ if(e.key==='Escape' && nav.classList.contains('is-open')) closeMenu(); });
+  nav.addEventListener('click', (e)=>{ if (e.target.closest('a,[data-modal-open]')) closeMenu(); });
+
+  // Возврат на десктоп — закрыть
+  const mq = window.matchMedia('(min-width: 770px)');
+  (mq.addEventListener ? mq.addEventListener('change', onChange) : mq.addListener(onChange));
+  function onChange(ev){ if(ev.matches) closeMenu(); }
+})();
+</script>
+
+<script>
+(function(){
+  const nav = document.getElementById('siteNav');
+  const toggle = document.getElementById('navToggle');
+  if(!nav) return;
+
+  function ensureMobileCTA(){
+    if (window.innerWidth > 769) return;         // Только на мобиле
+    if (!nav.querySelector('.nav-cta')) {        // Добавляем один раз
+      const cta = document.createElement('a');
+      cta.className = 'nav-cta btn btn-primary';
+      cta.href = '#';
+      cta.textContent = 'Оставить заявку';
+      cta.setAttribute('data-modal-open','contactModal'); // открывает твою модалку
+      nav.appendChild(cta);
+    }
+  }
+
+  // При клике на бургер — добавить CTA (если её ещё нет)
+  if (toggle) {
+    toggle.addEventListener('click', () => {
+      requestAnimationFrame(ensureMobileCTA);
+    });
+  }
+
+  // На случай, если меню уже открыто и делают ресайз
+  window.addEventListener('resize', ensureMobileCTA);
+
+  // Подстраховка: при первой загрузке на мобильной ширине тоже создадим
+  if (window.innerWidth <= 769) ensureMobileCTA();
+})();
+</script>
+
 
   </body>
 </html>
