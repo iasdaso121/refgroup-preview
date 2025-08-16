@@ -15,46 +15,6 @@
 /* Навигация на десктопе */
 .navigation { display: flex; align-items: center; gap: 20px; }
 
-/* Кнопка-бургер */
-.nav-toggle {
-  display: none;            /* по умолчанию скрыта (видна на мобилке) */
-  width: 40px; height: 40px;
-  border: 0; background: transparent; cursor: pointer;
-  position: relative; z-index: 1001;  /* поверх выезжающего меню */
-}
-.nav-toggle span {
-  position: absolute; left: 8px; right: 8px; height: 2px; background: #111; transition: transform .2s, top .2s, opacity .2s;
-}
-.nav-toggle span:nth-child(1){ top: 12px; }
-.nav-toggle span:nth-child(2){ top: 19px; }
-.nav-toggle span:nth-child(3){ top: 26px; }
-.nav-toggle.is-active span:nth-child(1){ top: 19px; transform: rotate(45deg); }
-.nav-toggle.is-active span:nth-child(2){ opacity: 0; }
-.nav-toggle.is-active span:nth-child(3){ top: 19px; transform: rotate(-45deg); }
-
-/* Мобилка: прячем меню, показываем бургер */
-@media (max-width: 992px) {
-  .nav-btn { display: none; }      /* CTA можно спрятать или утащить вниз меню */
-  .nav-toggle { display: block; }
-  .navigation {
-    position: fixed;
-    inset: 0 0 0 auto;             /* с правой стороны */
-    width: min(320px, 85vw);
-    padding: 80px 24px 24px;
-    display: flex; flex-direction: column; gap: 16px;
-    background: #fff;
-    box-shadow: -16px 0 32px rgba(0,0,0,.08);
-    transform: translateX(100%);
-    transition: transform .25s ease;
-    z-index: 1000;
-  }
-  .navigation.open { transform: translateX(0); }
-  /* чтобы контент сзади не нажимался */
-  body.menu-open { overflow: hidden; }
-}
-
-/* На всякий случай: чтобы клики по бургеру не блокировались ничем сверху */
-.nav-toggle, .navigation { pointer-events: auto; }
 
 
 /* Base styles */
@@ -180,22 +140,7 @@ img {
   color: #43b64a;
 }
 
-/* Mobile navigation toggle */
-.nav-toggle {
-  display: none;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0.5rem;
-}
-.nav-toggle span {
-  display: block;
-  width: 24px;
-  height: 3px;
-  background-color: #43b64a;
-  margin: 4px 0;
-  transition: transform 0.3s ease;
-}
+
 
 /* Responsive navigation */
 @media (max-width: 768px) {
@@ -215,9 +160,7 @@ img {
   .navigation.show {
     display: flex;
   }
-  .nav-toggle {
-    display: block;
-  }
+
   .nav-btn {
     display: none;
   }
@@ -1382,11 +1325,11 @@ body.modal-open{ overflow:hidden; }
 /* Узкие десктопы / ноутбуки */
 @media (max-width: 1200px){
   .hero-image .hero-stage{ max-width: 760px; min-height: 260px; }
-  .hero-chel{ right: 220px; width: 62%; }
-  .hero-grafik{ left: -8%; bottom: 4%; width: 34%; transform: rotate(-4deg); }
-  .hero-wb{ left: 7%; top: -26%; width: 8.5%; }
-  .hero-ozon{ left: 15.5%; top: -15%; width: 8.5%; }
-  .hero-counter{ left: 12%; bottom: 4%; width: 16.5%; }
+  .hero-chel{ right: 10px; width: 62%; }
+  .hero-grafik{ left: 25%; bottom: 4%; width: 34%; transform: rotate(-6deg); }
+  .hero-wb{ left: 41%; top: -21%; width: 8.5%; }
+  .hero-ozon{ left: 48%; top: 0%; width: 8.5%; }
+  .hero-counter{ left: 50%; bottom: 4%; width: 16%; }
   .hero-counter-number{ line-height: 1.2; }
   .hero-counter-label{ margin-top: 2px; }
 }
@@ -1394,44 +1337,102 @@ body.modal-open{ overflow:hidden; }
 /* Планшеты */
 @media (max-width: 992px){
   .hero-image .hero-stage{ max-width: 680px; min-height: 300px; }
-  .hero-chel{ right: 160px; width: 60%; }
-  .hero-grafik{ left: -4%; bottom: 5%; width: 36%; transform: rotate(-4deg); }
+  .hero-chel{ right: 25px; width: 60%; }
+  .hero-grafik{ left: 21%; bottom: 5%; width: 36%; transform: rotate(-6deg); }
   /* бейджи внутрь, чтобы не улетали за верх */
-  .hero-wb{ left: 8%; top: -10%; width: 9.5%; }
-  .hero-ozon{ left: 18%; top:   0%; width: 10%; }
-  .hero-counter{ left: 13%; bottom: 5%; width: 18%; }
+  .hero-wb{ left: 35%; top: 0%; width: 9.5%; }
+  .hero-ozon{ left: 45%; top: 10%; width: 10%; }
+  .hero-counter{ left: 49%; bottom: 5%; width: 18%; }
 }
 
 /* Большие телефоны / фаблеты */
 @media (max-width: 768px){
   .hero-image{ overflow-x: hidden; } /* убираем горизонтальный скролл */
-  .hero-image .hero-stage{ max-width: 560px; min-height: 260px; } /* меньше пустоты после кнопки */
+  .hero-image .hero-stage{ max-width: 560px; min-height: 350px; } /* меньше пустоты после кнопки */
   .hero-chel{ right: 2%;  width: 70%; }
-  .hero-grafik{ left: 0%;  bottom: 6%; width: 50%; transform: rotate(-3.5deg); }
-  .hero-wb{ left: 40%; top: 8%;  width: 14%; }   /* без отрицательных top */
-  .hero-ozon{ left: 54%; top: 16%; width: 16%; }
-  .hero-counter{ left: 30%; bottom: 6%; width: 26%; }
+  .hero-grafik{ left: 0%;  bottom: 1%; width: 50%; transform: rotate(-6deg); }
+  .hero-wb{ left: 19%; top: 8%;  width: 14%; }   /* без отрицательных top */
+  .hero-ozon{ left: 33%; top: 23%; width: 16%; }
+  .hero-counter{ left: 30%; bottom: 6%; width: 23%; }
   .hero-counter-number{ line-height: 1.1; }
   .hero-counter-label{ margin-top: 4px; }
 }
 
 /* Телефоны ≤ 600px */
 @media (max-width: 600px){
-  .hero-image .hero-stage{ max-width: 520px; min-height: 320px; }
+  .hero-image .hero-stage{ max-width: 520px; min-height: 370px; }
   .hero-chel{ right: -4%; width: 80%; }
-  .hero-grafik{ left: -6%; bottom: 1%; width: 58%; transform: rotate(-3deg); }
-  .hero-wb{ left: 20%; top: 0%;  width: 16%; }
-  .hero-ozon{ left: 33%; top: 16%; width: 18%; }
-  .hero-counter{ left: 36%; bottom: 6%; width: 30%; }
+  .hero-grafik{ left: -6%; bottom: 1%; width: 58%; transform: rotate(-6deg); }
+  .hero-wb{ left: 17%; top: 6%;  width: 16%; }
+  .hero-ozon{ left: 30%; top: 21%; width: 18%; }
+  .hero-counter{ left: 39%; bottom: 6%; width: 20%; }
 }
 
 /* Маленькие телефоны ≤ 420px */
 @media (max-width: 420px){
-  .hero-image .hero-stage{ max-width: 100%; min-height: 260px; }
+  .hero-image .hero-stage{ max-width: 100%; min-height: 340px; }
   .hero-chel{ right: -10%; width: 92%; }
-  .hero-grafik{ left: 0%; bottom: 7%; width: 66%; transform: rotate(-3deg); }
-  .hero-wb{ left: 20%; top: 6%; width: 18%; }
-  .hero-ozon{ left: 64%; top: 16%; width: 20%; }
-  .hero-counter{ left: 38%; bottom: 7%; width: 34%; }
+  .hero-grafik{ left: -15%; bottom: 1%; width: 66%; transform: rotate(-6deg); }
+  .hero-wb{ left: 9%; top: 6%; width: 18%; }
+  .hero-ozon{ left: 26%; top: 20%; width: 20%; }
+  .hero-counter{ left: 30%; bottom: 7%; width: 28%; }
+}
+
+/* === HERO counter: фикс размеров и позиционирования текста === */
+
+/* центрируем контент круга без хаков */
+.hero-counter{
+  display: flex;                 /* вместо grid удобнее столбиком */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;                      /* расстояние между числом и подписью */
+  padding: 2px 0;                /* микроподстройка по вкусу */
+}
+
+/* число — фиксированный размер и нормальная межстрочная */
+.hero-counter-number{
+  font-size: 32px !important;    /* стабильный размер, не зависит от vw */
+  line-height: 1 !important;     /* убираем «растяжку» */
+  margin: 0 !important;
+}
+
+/* подпись — тоже фикс, без отрицательных маргинов */
+.hero-counter-label{
+  font-size: 13px !important;
+  margin: 0 !important;          /* убираем margin-top: -60px */
+  line-height: 1.2;
+  opacity: .95;
+}
+
+/* На сверхузких экранах (если прям не влазит) — капельку компактнее */
+@media (max-width: 360px){
+  .hero-counter-number{ font-size: 30px !important; }
+  .hero-counter-label{  font-size: 12px !important; }
+}
+
+/* базовая раскладка хедера */
+.header-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+}
+
+/* стиль телефона (по желанию подправь размеры/цвет) */
+.header-phone{
+  display:center;
+  align-items: right;
+  gap:8px;
+  font-weight: 500;
+  white-space:nowrap;            /* номер не переносится */
+  text-decoration:none;
+  color:#3f3f3f;                    /* поставь свой цвет */
+}
+
+/* < 1200px: прячем навигацию, телефон оставляем */
+@media (max-width:1290px){
+  .header .navigation{ display:none; }  /* скрыть меню */
+  .header-phone{ display:center; }  /* телефон виден */
 }
 
