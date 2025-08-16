@@ -48,8 +48,8 @@ app.post('/api/send', async (req, res) => {
 });
 
 const port = process.env.PORT || 3000;
-
-app.listen(port, '0.0.0.0', () => {
-  console.log(`Server running at http://0.0.0.0:${port}`);
+app.set('trust proxy', 1);
+app.listen(port, '127.0.0.1', () => {
+  console.log(`Server running at http://127.0.0.1:${port}`);
 
 });
